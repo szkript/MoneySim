@@ -12,7 +12,7 @@ namespace MoneySim
         public int Price;
         public int Occurence;
 
-        public Expense(string name, int price, int occurence)
+        public Expense(string name, int price, int occurence=0)
         {
             Name = name;
             Price = price;
