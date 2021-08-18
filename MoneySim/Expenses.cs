@@ -14,7 +14,15 @@ namespace MoneySim
         public List<Expense> periodicalExpense;//bizonyos időnkéntni fix kiadásokat mint polk dohány
         public List<Expense> monthlyExpense;//havi fix 1x kiadások mint pl hiteltörlesztés
         public List<Expense> creditExpense;//hitel törlesztések nyoomon követése
+        public Expenses()
+        {
+            InitExpenses();
+        }
 
-
+        private void InitExpenses()
+        {
+            DatabaseHandler databaseHandler = new DatabaseHandler();
+            dailyExpense = databaseHandler.GetDailyExpenses();
+        }
     }
 }

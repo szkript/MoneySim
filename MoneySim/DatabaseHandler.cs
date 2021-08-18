@@ -34,6 +34,28 @@ namespace MoneySim
                 }
             }
         }
+
+        internal List<Expense> GetDailyExpenses()
+        {
+            string query = "SELECT TOP (1000) [id],[Item],[Price],[Occurence] FROM [Expenses]";
+            List<Expense> result = null;
+            try
+            {
+                DataTable expenses = RunSelectQuery(query);
+                foreach (DataRow item in expenses.Rows)
+                {
+
+                }
+                return result;
+            }
+            catch (Exception)
+            {
+
+                return result;
+            }
+
+        }
+
         public DataTable RunSelectQuery(string query)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

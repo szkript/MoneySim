@@ -11,11 +11,10 @@ namespace MoneySim
         private const int MonthlyIncome = 250000;
         private int DaysToSimulate;
         //todo: cserélni Expenses classra,majd az betölt minden szart
-        private List<Expense> Expenses;
+        private Expenses Expenses;
         public Simulator(int numberOfDays)
         {
-            DatabaseHandler dh = new DatabaseHandler();
-            Expenses = dh.LoadFromDatabase();
+            Expenses = new Expenses();
             DaysToSimulate = numberOfDays;
         }        
         public void Simulate()
