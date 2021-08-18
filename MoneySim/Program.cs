@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace MoneySim
                 while (true)
                 {
                     Console.WriteLine("Add expense: Name,Price\n");  //occurence will be calculated on tracking
-                    string input =  Console.ReadLine();
+                    string input = Console.ReadLine();
                     if ("".Equals(input) || !input.Contains(','))
                     {
                         break;
@@ -31,7 +32,7 @@ namespace MoneySim
                     string[] prms = input.Split(',');
                     Expense expense = new Expense(prms[0], int.Parse(prms[1]));
                     dbHandler.InsertItem(expense);
-                }                
+                }
             }
             else if ("1".Equals(choice))   // Felvett költségek naptárhoz rendelése,hogy a gyakoriságot lehessen traackelni.
             {
@@ -39,7 +40,17 @@ namespace MoneySim
             }
             else if ("2".Equals(choice))   // szimuláció
             {
-                Simulator sim = new Simulator(5);
+                Console.WriteLine("Days of simulation:");
+                string input = Console.ReadLine();
+                try
+                {
+                    int days = int.Parse(input);
+                    Simulator sim = new Simulator(days);
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                }
             }
         }
     }

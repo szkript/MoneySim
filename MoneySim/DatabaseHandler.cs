@@ -18,7 +18,8 @@ namespace MoneySim
         }
         public void InsertItem(Expense expense)
         {
-            string query = $"INSERT INTO dbo.Expenses(Item,Price,Occurence) Values('{expense.Name}', {expense.Price}, {expense.Occurence})";
+            string query = $"INSERT INTO dbo.Expenses(Item,Price,Occurence)" +
+                $" Values('{expense.Name}', {expense.Price}, {expense.Occurence})";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -62,7 +63,9 @@ namespace MoneySim
                 DataTable dataTable = RunSelectQuery(query);
                 foreach(DataRow dr in dataTable.Rows)
                 {
-                    expenses.Add(new Expense(dr["Item"].ToString(), int.Parse(dr["Price"].ToString()), int.Parse(dr["Occurence"].ToString())));
+                    expenses.Add(new Expense(dr["Item"].ToString(),
+                        int.Parse(dr["Price"].ToString()),
+                        int.Parse(dr["Occurence"].ToString())));
                 }
                 return expenses;
             }
