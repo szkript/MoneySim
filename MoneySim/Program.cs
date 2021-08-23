@@ -16,8 +16,8 @@ namespace MoneySim
         public static void InitMenu()
         {
             Console.WriteLine("To add Expenses press 0,Track expense press 1, To simulate press 2: ");
-            //string choice = Console.ReadLine();
-            string choice = "2";
+            string choice = Console.ReadLine();
+            //string choice = "2";
             if ("0".Equals(choice)) //kiadás felvétele
             {
                 DatabaseHandler dbHandler = new DatabaseHandler();
