@@ -11,10 +11,10 @@ namespace MoneySim
         private const int MonthlyIncome = 250000;
         private int DaysToSimulate;
         //todo: cserélni Expenses classra,majd az betölt minden szart
-        private Expenses Expenses;
+        private Expenses expenses;
         public Simulator(int numberOfDays)
         {
-            Expenses = new Expenses();
+            expenses = new Expenses();
             DaysToSimulate = numberOfDays;
         }        
         public void Simulate()

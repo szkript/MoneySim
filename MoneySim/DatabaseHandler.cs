@@ -37,14 +37,16 @@ namespace MoneySim
 
         internal List<Expense> GetDailyExpenses()
         {
-            string query = "SELECT TOP (1000) [id],[Item],[Price],[Occurence] FROM [Expenses]";
-            List<Expense> result = null;
+            string query = "SELECT [id],[Item],[Price],[Occurence] FROM [Expenses]";
+            List<Expense> result = new List<Expense>();
             try
             {
                 DataTable expenses = RunSelectQuery(query);
                 foreach (DataRow item in expenses.Rows)
                 {
-
+                    result.Add(new Expense(item["Item"].ToString(),
+                        int.Parse(item["Price"].ToString()),
+                        int.Parse(item["Occurence"].ToString())));
                 }
                 return result;
             }
@@ -52,6 +54,7 @@ namespace MoneySim
             {
 
                 return result;
+
             }
 
         }
