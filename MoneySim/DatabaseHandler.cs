@@ -35,6 +35,21 @@ namespace MoneySim
             }
         }
 
+        internal List<Expense> GetPeriodicalExpenses()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal List<Expense> GetCreditExpenses()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal List<Expense> GetMonthlyExpenses()
+        {
+            throw new NotImplementedException();
+        }
+
         internal List<Expense> GetDailyExpenses()
         {
             string query = "SELECT [id],[Item],[Price],[Occurence] FROM [Expenses]";

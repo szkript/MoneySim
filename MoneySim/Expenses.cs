@@ -23,6 +23,9 @@ namespace MoneySim
         {
             DatabaseHandler databaseHandler = new DatabaseHandler();
             dailyExpense = databaseHandler.GetDailyExpenses();
+            periodicalExpense = databaseHandler.GetPeriodicalExpenses();
+            monthlyExpense = databaseHandler.GetMonthlyExpenses();
+            creditExpense = databaseHandler.GetCreditExpenses();
         }
     }
 }
