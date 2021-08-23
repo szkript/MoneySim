@@ -18,10 +18,5 @@ namespace MoneySim
             Price = price;
             Occurence = occurence;
         }
-
-        public void SaveToDatabase(Expense item)
-        {
-            //insert item into expense table
-        }
     }
 }
